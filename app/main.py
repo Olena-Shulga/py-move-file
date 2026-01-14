@@ -19,8 +19,8 @@ def move_file(command: str) -> None:
                 if not os.path.exists(current_path):
                     os.mkdir(current_path)
 
-            final_file_name = initial_file if destination_file[-1] == "/" \
-                else destination_path[-1]
+            final_file_name = os.path.basename(initial_file) \
+                if destination_file[-1] == "/" else destination_path[-1]
 
             with (open(initial_file, "r") as old_file,
                   open(os.path.join(current_path, final_file_name), "w")
